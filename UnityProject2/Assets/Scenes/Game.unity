@@ -301,25 +301,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2064503699 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5064750666233417607, guid: fcb6f1ec70937be4ba8fd58870c6ae9d, type: 3}
-  m_PrefabInstance: {fileID: 5064750667875862648}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2064503700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2064503699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcb2590791fc71842bd3bf9e64095437, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _horizontalDirection: 0
-  _moveSpeed: 10
 --- !u!1001 &1491236408817217235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -436,5 +417,44 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6550041756683341130, guid: fcb6f1ec70937be4ba8fd58870c6ae9d, type: 3}
+      propertyPath: m_Constraints
+      value: 120
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcb6f1ec70937be4ba8fd58870c6ae9d, type: 3}
+--- !u!1 &5064750667875862649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5064750666233417607, guid: fcb6f1ec70937be4ba8fd58870c6ae9d, type: 3}
+  m_PrefabInstance: {fileID: 5064750667875862648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5064750667875862650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5064750667875862649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: f31baea4d015c6740854273556ed0363, type: 3}
+  m_NotificationBehavior: 3
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PlayerOnFoot
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
