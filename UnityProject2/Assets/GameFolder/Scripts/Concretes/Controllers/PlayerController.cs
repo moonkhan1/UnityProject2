@@ -9,6 +9,7 @@ using UnityProject2.Abstracts.I_InputReader;
 namespace UnityProject2.Controllers{
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] float _moveBoundry = 4.5f;
     [SerializeField] private float _moveSpeed = 10f;
     [SerializeField] float _jumpForce = 300f;
 
@@ -17,6 +18,9 @@ public class PlayerController : MonoBehaviour
     I_InputReader _input;
     float _horizontal;
     bool _isJump;
+
+    public float MoveSpeed => _moveSpeed;
+    public float MoveBoundry => _moveBoundry;
 
     private void Awake() {
         _horizontalMove = new HorizontalMove(this);
@@ -33,7 +37,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     private void FixedUpdate() {
-        _horizontalMove.TickFixer(_horizontal,_moveSpeed);
+        _horizontalMove.TickFixer(_horizontal);
         
         if(_isJump)
         {
