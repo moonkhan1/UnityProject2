@@ -37,6 +37,15 @@ namespace UnityProject2.Inputs
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=2)"",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""03b2dbdd-35c4-4596-9a26-7431b23b6fee"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -44,7 +53,7 @@ namespace UnityProject2.Inputs
                     ""name"": ""AD"",
                     ""id"": ""4671bcae-cead-4880-8c5c-5a0fdfa238ce"",
                     ""path"": ""1DAxis"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""HorizontalMove"",
@@ -105,6 +114,28 @@ namespace UnityProject2.Inputs
                     ""action"": ""HorizontalMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fa368f52-9012-4dc6-ad87-50e542a1ce12"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": ""Tap(duration=0.01)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dbd82675-6cb3-493b-ab83-4c60393493fd"",
+                    ""path"": ""<HID:: USB Gamepad          >/button3"",
+                    ""interactions"": ""Tap(duration=0.01)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -114,6 +145,7 @@ namespace UnityProject2.Inputs
             // PlayerOnFoot
             m_PlayerOnFoot = asset.FindActionMap("PlayerOnFoot", throwIfNotFound: true);
             m_PlayerOnFoot_HorizontalMove = m_PlayerOnFoot.FindAction("HorizontalMove", throwIfNotFound: true);
+            m_PlayerOnFoot_Jump = m_PlayerOnFoot.FindAction("Jump", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -174,11 +206,13 @@ namespace UnityProject2.Inputs
         private readonly InputActionMap m_PlayerOnFoot;
         private IPlayerOnFootActions m_PlayerOnFootActionsCallbackInterface;
         private readonly InputAction m_PlayerOnFoot_HorizontalMove;
+        private readonly InputAction m_PlayerOnFoot_Jump;
         public struct PlayerOnFootActions
         {
             private @Gameİnput m_Wrapper;
             public PlayerOnFootActions(@Gameİnput wrapper) { m_Wrapper = wrapper; }
             public InputAction @HorizontalMove => m_Wrapper.m_PlayerOnFoot_HorizontalMove;
+            public InputAction @Jump => m_Wrapper.m_PlayerOnFoot_Jump;
             public InputActionMap Get() { return m_Wrapper.m_PlayerOnFoot; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -191,6 +225,9 @@ namespace UnityProject2.Inputs
                     @HorizontalMove.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnHorizontalMove;
                     @HorizontalMove.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnHorizontalMove;
                     @HorizontalMove.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnHorizontalMove;
+                    @Jump.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnJump;
+                    @Jump.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnJump;
+                    @Jump.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnJump;
                 }
                 m_Wrapper.m_PlayerOnFootActionsCallbackInterface = instance;
                 if (instance != null)
@@ -198,6 +235,9 @@ namespace UnityProject2.Inputs
                     @HorizontalMove.started += instance.OnHorizontalMove;
                     @HorizontalMove.performed += instance.OnHorizontalMove;
                     @HorizontalMove.canceled += instance.OnHorizontalMove;
+                    @Jump.started += instance.OnJump;
+                    @Jump.performed += instance.OnJump;
+                    @Jump.canceled += instance.OnJump;
                 }
             }
         }
@@ -205,6 +245,7 @@ namespace UnityProject2.Inputs
         public interface IPlayerOnFootActions
         {
             void OnHorizontalMove(InputAction.CallbackContext context);
+            void OnJump(InputAction.CallbackContext context);
         }
     }
 }

@@ -369,6 +369,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2064503700, guid: fcb6f1ec70937be4ba8fd58870c6ae9d, type: 3}
+      propertyPath: _jumpForce
+      value: 1700
+      objectReference: {fileID: 0}
     - target: {fileID: 5064750666233413755, guid: fcb6f1ec70937be4ba8fd58870c6ae9d, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -416,6 +420,10 @@ PrefabInstance:
     - target: {fileID: 5064750666233417607, guid: fcb6f1ec70937be4ba8fd58870c6ae9d, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6550041756683341130, guid: fcb6f1ec70937be4ba8fd58870c6ae9d, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6550041756683341130, guid: fcb6f1ec70937be4ba8fd58870c6ae9d, type: 3}
       propertyPath: m_Constraints

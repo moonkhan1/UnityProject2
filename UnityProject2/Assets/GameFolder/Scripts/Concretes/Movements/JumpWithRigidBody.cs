@@ -6,6 +6,7 @@ public class JumpWithRigidBody
 {
     private Rigidbody _rigidBody;
 
+    public bool CanJump =>_rigidBody.velocity.y !=0f;
     public JumpWithRigidBody(PlayerController playerController)
     {
         _rigidBody = playerController.GetComponent<Rigidbody>();
@@ -13,7 +14,7 @@ public class JumpWithRigidBody
     
     public void TickFixer(float jumpForce)
     {
-        if(_rigidBody.velocity.y !=0) return;
+        if(CanJump) return;
 
         _rigidBody.velocity = Vector3.zero;
         _rigidBody.AddForce(Vector3.up * Time.deltaTime * jumpForce);
