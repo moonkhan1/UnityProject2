@@ -5,6 +5,7 @@ using UnityProject2.Movements;
 using UnityEngine.InputSystem;
 using UnityProject2.Inputs;
 using UnityProject2.Abstracts.I_InputReader;
+using UnityProject2.Managers;
 
 namespace UnityProject2.Controllers{
 public class PlayerController : MonoBehaviour
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     I_InputReader _input;
     float _horizontal;
     bool _isJump;
+    bool _isDead = false; // Toqqusduqdan sonra hec bir input almasin
 
     public float MoveSpeed => _moveSpeed;
     public float MoveBoundry => _moveBoundry;
@@ -29,6 +31,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update() {
+
+        if(_isDead) return;
         _horizontal = _input.Horizontal;
 
         if(_input.isJump) 
@@ -46,5 +50,24 @@ public class PlayerController : MonoBehaviour
         }
         _isJump=false;
     }
+
+    private void OnCollisionEnter(Collision other) 
+    {
+        EnemyController enemyController = other.collider.GetComponent<EnemyController>();
+
+        if(enemyController != null)
+        {
+            _isDead = true;
+            GameManager.Instance.StopGame();   
+        }
+    }
+    // private void OnTriggerEnter(Collider other) {
+    //     EnemyController enemyController = other.GetComponent<EnemyController>();
+
+    //     if(enemyController != null)
+    //     {
+    //         GameManager.Instance.StopGame();   
+    //     }
+    // }
 }
 }
