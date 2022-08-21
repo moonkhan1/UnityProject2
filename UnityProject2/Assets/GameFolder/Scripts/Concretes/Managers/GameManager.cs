@@ -16,5 +16,15 @@ public class GameManager : SingletonMonoBehaviorObject<GameManager>
     {
         Time.timeScale = 0f;
     }
+
+    public void LoadScene()
+    {
+        Debug.Log("Load scene clicked");
+    }
+    public void ExitGame()
+    {
+        Debug.Log("Exit scene clicked");
+        Application.Quit();
+    }
 }
 }
