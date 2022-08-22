@@ -8,7 +8,7 @@ public class MenuPanel : MonoBehaviour
 {
     public void StartButton()
     {
-        GameManager.Instance.LoadScene();
+        GameManager.Instance.LoadScene("Game");
     }
 
     public void ExitButton()
