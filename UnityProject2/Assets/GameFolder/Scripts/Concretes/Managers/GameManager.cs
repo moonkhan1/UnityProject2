@@ -8,6 +8,8 @@ namespace UnityProject2.Managers{
 
 public class GameManager : SingletonMonoBehaviorObject<GameManager>
 {
+
+    public event System.Action OnGameStop;
     private void Awake() 
     {
         SingletonThisObject(this);    
@@ -16,6 +18,8 @@ public class GameManager : SingletonMonoBehaviorObject<GameManager>
     public void StopGame()
     {
         Time.timeScale = 0f;
+
+        OnGameStop?.Invoke();// If it is not null then run.
     }
 
     public void LoadScene(string sceneName)
