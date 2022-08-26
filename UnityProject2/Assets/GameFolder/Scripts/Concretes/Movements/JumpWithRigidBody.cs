@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityProject2.Controllers;
-public class JumpWithRigidBody 
+using UnityProject2.Abstracts.Movements;
+public class JumpWithRigidBody : I_Jump
 {
-    private Rigidbody _rigidBody;
+    Rigidbody _rigidBody;
 
     public bool CanJump =>_rigidBody.velocity.y !=0f;
     public JumpWithRigidBody(PlayerController playerController)
@@ -12,7 +13,7 @@ public class JumpWithRigidBody
         _rigidBody = playerController.GetComponent<Rigidbody>();
     }
     
-    public void TickFixer(float jumpForce)
+    public void FixedTick(float jumpForce)
     {
         if(CanJump) return;
 

@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityProject2.Movements;
+using UnityProject2.Managers;
+using UnityProject2.Controllers;
+using UnityProject2.Abstracts.Controllers;
 
 namespace UnityProject2.Controllers{
-public class EnemyController : MonoBehaviour
+public class EnemyController : MyCharacterController, I_EntityController
 {
+    
     [SerializeField] float _maxLifeTime = 10f;
-    [SerializeField] float _moveSpeed = 10f;
     VerticalMover _mover;
     float _currentLifeTime = 0f;
 
-    public float MoveSpeed => _moveSpeed;
+    
 
     private void Awake() {
         _mover = new VerticalMover(this);
@@ -31,7 +34,8 @@ public class EnemyController : MonoBehaviour
     }
 
     void KillYourself(){
-        Destroy(this.gameObject);
+        EnemyManager.Instance.SetPool(this);
+        // Destroy(this.gameObject);
     }
 }
 }

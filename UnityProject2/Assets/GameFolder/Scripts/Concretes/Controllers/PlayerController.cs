@@ -6,26 +6,26 @@ using UnityEngine.InputSystem;
 using UnityProject2.Inputs;
 using UnityProject2.Abstracts.I_InputReader;
 using UnityProject2.Managers;
+using UnityProject2.Abstracts.Controllers;
+using UnityProject2.Abstracts.Movements;
 
 namespace UnityProject2.Controllers{
-public class PlayerController : MonoBehaviour
+public class PlayerController : MyCharacterController, I_EntityController
 {
-    [SerializeField] float _moveBoundry = 4.5f;
-    [SerializeField] private float _moveSpeed = 10f;
+    
     [SerializeField] float _jumpForce = 300f;
 
-    HorizontalMove _horizontalMove;
-    JumpWithRigidBody _jump;
+    İ_Mover _mover;
+    I_Jump _jump;
     I_InputReader _input;
     float _horizontal;
     bool _isJump;
     bool _isDead = false; // Toqqusduqdan sonra hec bir input almasin
 
-    public float MoveSpeed => _moveSpeed;
-    public float MoveBoundry => _moveBoundry;
+    
 
     private void Awake() {
-        _horizontalMove = new HorizontalMove(this);
+        _mover = new HorizontalMove(this);
         _jump = new JumpWithRigidBody(this);
         _input = new InputReader(GetComponent<PlayerInput>());
     }
@@ -41,11 +41,11 @@ public class PlayerController : MonoBehaviour
         }
     }
     private void FixedUpdate() {
-        _horizontalMove.TickFixer(_horizontal);
+        _mover.FixedTick(_horizontal);
         
         if(_isJump)
         {
-            _jump.TickFixer(_jumpForce);
+            _jump.FixedTick(_jumpForce);
             
         }
         _isJump=false;
@@ -53,9 +53,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) 
     {
-        EnemyController enemyController = other.collider.GetComponent<EnemyController>();
+        I_EntityController entityController = other.collider.GetComponent<I_EntityController>();
 
-        if(enemyController != null)
+        if(entityController != null)
         {
             _isDead = true;
             GameManager.Instance.StopGame();   
