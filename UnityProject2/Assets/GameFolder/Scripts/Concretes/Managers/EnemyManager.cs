@@ -7,8 +7,8 @@ using UnityProject2.Abstracts.Utilities;
 namespace UnityProject2.Managers{
 public class EnemyManager : SingletonMonoBehaviorObject<EnemyManager>
 {
-
-    [SerializeField] EnemyController _enemyPrefeb;
+    // Birden cox Enemy obyektini elave eded bilmek ucun bu deyiseni List edirik
+    [SerializeField] EnemyController[] _enemyPrefebs;
     Queue<EnemyController> _enemies = new Queue<EnemyController>(); // Enemy Pool
 
     private void Awake() {
@@ -22,7 +22,7 @@ public class EnemyManager : SingletonMonoBehaviorObject<EnemyManager>
     {
         for (int i = 0; i < 10; i++)
         {
-            EnemyController newEnemy = Instantiate(_enemyPrefeb);
+            EnemyController newEnemy = Instantiate(_enemyPrefebs[Random.Range(0,_enemyPrefebs.Length)]);
             newEnemy.gameObject.SetActive(false);
             newEnemy.transform.parent = this.transform;
             _enemies.Enqueue(newEnemy); // Enemy Poola elave edirik

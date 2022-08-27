@@ -558,11 +558,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3291729143489143430, guid: 914df53c67128ea4f8cddbb63cf3d2b3, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 3.4e-44
+      value: 4.1837474e+25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291729143489143430, guid: 914df53c67128ea4f8cddbb63cf3d2b3, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 1.02e-43
       objectReference: {fileID: 0}
     - target: {fileID: 3291729143489143430, guid: 914df53c67128ea4f8cddbb63cf3d2b3, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 6e-45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7498744909120098106, guid: 914df53c67128ea4f8cddbb63cf3d2b3, type: 3}
       propertyPath: m_RootOrder
@@ -816,6 +820,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[EnemyManager]'
       objectReference: {fileID: 0}
+    - target: {fileID: 7381760265700587013, guid: f0eb1052ee14d3a4fb7078a151a7deea, type: 3}
+      propertyPath: _enemyPrefebs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381760265700587013, guid: f0eb1052ee14d3a4fb7078a151a7deea, type: 3}
+      propertyPath: _enemyPrefebs.Array.data[2]
+      value: 
+      objectReference: {fileID: 8270767017026911309, guid: 8afaa1f7b1f4e8b4399ca74f8ae897e1, type: 3}
     - target: {fileID: 8242692698263286046, guid: f0eb1052ee14d3a4fb7078a151a7deea, type: 3}
       propertyPath: m_RootOrder
       value: 7
