@@ -822,12 +822,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7381760265700587013, guid: f0eb1052ee14d3a4fb7078a151a7deea, type: 3}
       propertyPath: _enemyPrefebs.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7381760265700587013, guid: f0eb1052ee14d3a4fb7078a151a7deea, type: 3}
       propertyPath: _enemyPrefebs.Array.data[2]
       value: 
       objectReference: {fileID: 8270767017026911309, guid: 8afaa1f7b1f4e8b4399ca74f8ae897e1, type: 3}
+    - target: {fileID: 7381760265700587013, guid: f0eb1052ee14d3a4fb7078a151a7deea, type: 3}
+      propertyPath: _enemyPrefebs.Array.data[3]
+      value: 
+      objectReference: {fileID: 6409047959752801829, guid: b58d89d65d3b7e644871b853c50572aa, type: 3}
     - target: {fileID: 8242692698263286046, guid: f0eb1052ee14d3a4fb7078a151a7deea, type: 3}
       propertyPath: m_RootOrder
       value: 7
