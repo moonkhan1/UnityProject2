@@ -1,4 +1,3 @@
-using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,10 +10,14 @@ public class EnemyManager : SingletonMonoBehaviorObject<EnemyManager>
 {
     // Birden cox Enemy obyektini elave eded bilmek ucun bu deyiseni List edirik
     
+    [SerializeField] float _addDelayTime = 50f;
     [SerializeField] EnemyController[] _enemyPrefebs;
 
     Dictionary<EnemyEnum, Queue<EnemyController>> _enemies = new Dictionary<EnemyEnum,Queue<EnemyController>>(); // Enemy Pool
 
+    public float AddDelayTime => _addDelayTime;
+
+    public int Count => _enemyPrefebs.Length;
 
     private void Awake() {
         SingletonThisObject(this);
@@ -27,16 +30,15 @@ public class EnemyManager : SingletonMonoBehaviorObject<EnemyManager>
     {
         for (int i = 0; i < _enemyPrefebs.Length; i++)
         {
-            Queue<EnemyController> enemyController = new Queue<EnemyController>();
+            Queue<EnemyController> enemyControllers = new Queue<EnemyController>();
             for (int j = 0; j < 10; j++)
             {
                 EnemyController newEnemy = Instantiate(_enemyPrefebs[i]);
                 newEnemy.gameObject.SetActive(false);
                 newEnemy.transform.parent = this.transform;
-                _enemies.Enqueue(newEnemy); // Enemy Poola elave edirik
-                _enemies.Enqueue(newEnemy);
+                enemyControllers.Enqueue(newEnemy); // Enemy Poola elave edirik
             }    
-            _enemies.Add((EnemyEnum)i,enemyController);
+            _enemies.Add((EnemyEnum)i,enemyControllers);
         }
         
     }
@@ -44,16 +46,23 @@ public class EnemyManager : SingletonMonoBehaviorObject<EnemyManager>
     {
         enemyController.gameObject.SetActive(false);
         enemyController.transform.parent = this.transform;
-        _enemies.Enqueue(enemyController);
+
+        Queue<EnemyController> enemyControllers = _enemies[enemyController.EnemyType];
+        enemyControllers.Enqueue(enemyController);
         
     }
-    public EnemyController GetPool()
+    public EnemyController GetPool(EnemyEnum enemyType)
     {
-        if(_enemies.Count == 0)
+        Queue<EnemyController> enemyControllers = _enemies[enemyType];
+        if(enemyControllers.Count == 0)
         {
-            InitializePool();
+            for (int i = 0; i < 2; i++)
+            {
+                EnemyController newEnemy = Instantiate(_enemyPrefebs[(int) enemyType]);
+                enemyControllers.Enqueue(newEnemy);
+            }
         }
-        return _enemies.Dequeue();
+        return enemyControllers.Dequeue();
     }
 }
 }
