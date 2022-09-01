@@ -41,5 +41,11 @@ public class EnemyController : MyCharacterController, I_EntityController
         EnemyManager.Instance.SetPool(this);
         // Destroy(this.gameObject);
     }
+
+    public void SetMoveSpeed(float moveSpeed = 10f)
+    {
+        if(moveSpeed < _moveSpeed) return;
+        _moveSpeed = moveSpeed;
+    }
 }
 }

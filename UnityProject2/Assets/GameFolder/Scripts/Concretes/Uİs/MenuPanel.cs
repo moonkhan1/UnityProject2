@@ -6,8 +6,9 @@ using UnityProject2.Managers;
 namespace UnityProject2.Concretes.Uİs{
 public class MenuPanel : MonoBehaviour
 {
-    public void StartButton()
+    public void SelectandStartButton(int index)
     {
+        GameManager.Instance.DifficultyIndex = index;
         GameManager.Instance.LoadScene("Game");
     }
 

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0ae7b9d22056d564d9e5e033633c365a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _floorPrefeb: {instanceID: 0}
+  - _spawnersPrefeb: {instanceID: 0}
+  - _skyboxMaterial: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

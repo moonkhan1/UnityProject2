@@ -9,19 +9,17 @@ namespace UnityProject2.Movements{
 public class VerticalMover : İ_Mover
 {
 
-    float _moveSpeed;
     
         I_EntityController _entityController;
 
         public VerticalMover(I_EntityController entityController)
         {
             _entityController=entityController;
-            _moveSpeed = _entityController.MoveSpeed;
         }
 
     public void FixedTick(float vertical = 1f)
     {
-        _entityController.transform.Translate(Vector3.forward * vertical * _moveSpeed * Time.deltaTime);
+        _entityController.transform.Translate(Vector3.forward * vertical * _entityController.MoveSpeed * Time.deltaTime);
     }
 }
 

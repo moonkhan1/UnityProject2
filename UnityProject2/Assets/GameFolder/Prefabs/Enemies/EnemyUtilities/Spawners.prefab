@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5564579685098541580}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.1400001, z: -30.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -43,6 +43,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1952033512941500117}
     m_Modifications:
+    - target: {fileID: -7915751928114151699, guid: 1e537184c2d124344bfd9d92b8b5f854, type: 3}
+      propertyPath: _max
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -7915751928114151699, guid: 1e537184c2d124344bfd9d92b8b5f854, type: 3}
+      propertyPath: _min
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3120970238688833693, guid: 1e537184c2d124344bfd9d92b8b5f854, type: 3}
       propertyPath: m_Name
       value: Spawner (1)
@@ -105,6 +113,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1952033512941500117}
     m_Modifications:
+    - target: {fileID: -7915751928114151699, guid: 1e537184c2d124344bfd9d92b8b5f854, type: 3}
+      propertyPath: _max
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -7915751928114151699, guid: 1e537184c2d124344bfd9d92b8b5f854, type: 3}
+      propertyPath: _min
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3120970238688833693, guid: 1e537184c2d124344bfd9d92b8b5f854, type: 3}
       propertyPath: m_Name
       value: Spawner
@@ -167,6 +183,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1952033512941500117}
     m_Modifications:
+    - target: {fileID: -7915751928114151699, guid: 1e537184c2d124344bfd9d92b8b5f854, type: 3}
+      propertyPath: _max
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -7915751928114151699, guid: 1e537184c2d124344bfd9d92b8b5f854, type: 3}
+      propertyPath: _min
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3120970238688833693, guid: 1e537184c2d124344bfd9d92b8b5f854, type: 3}
       propertyPath: m_Name
       value: Spawner (4)
@@ -229,6 +253,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1952033512941500117}
     m_Modifications:
+    - target: {fileID: -7915751928114151699, guid: 1e537184c2d124344bfd9d92b8b5f854, type: 3}
+      propertyPath: _max
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -7915751928114151699, guid: 1e537184c2d124344bfd9d92b8b5f854, type: 3}
+      propertyPath: _min
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3120970238688833693, guid: 1e537184c2d124344bfd9d92b8b5f854, type: 3}
       propertyPath: m_Name
       value: Spawner (2)
@@ -291,6 +323,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1952033512941500117}
     m_Modifications:
+    - target: {fileID: -7915751928114151699, guid: 1e537184c2d124344bfd9d92b8b5f854, type: 3}
+      propertyPath: _max
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -7915751928114151699, guid: 1e537184c2d124344bfd9d92b8b5f854, type: 3}
+      propertyPath: _min
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3120970238688833693, guid: 1e537184c2d124344bfd9d92b8b5f854, type: 3}
       propertyPath: m_Name
       value: Spawner (3)

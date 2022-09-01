@@ -67,5 +67,7 @@ public class SpawnerController : MonoBehaviour
             _index++;
         }
     }
+
+    
 }
 }

@@ -15,6 +15,8 @@ public class EnemyManager : SingletonMonoBehaviorObject<EnemyManager>
 
     Dictionary<EnemyEnum, Queue<EnemyController>> _enemies = new Dictionary<EnemyEnum,Queue<EnemyController>>(); // Enemy Pool
 
+    float _moveSpeed;
+
     public float AddDelayTime => _addDelayTime;
 
     public int Count => _enemyPrefebs.Length;
@@ -59,10 +61,23 @@ public class EnemyManager : SingletonMonoBehaviorObject<EnemyManager>
             for (int i = 0; i < 2; i++)
             {
                 EnemyController newEnemy = Instantiate(_enemyPrefebs[(int) enemyType]);
+                newEnemy.gameObject.SetActive(false);
                 enemyControllers.Enqueue(newEnemy);
             }
         }
-        return enemyControllers.Dequeue();
+
+        EnemyController enemyController = enemyControllers.Dequeue();
+        enemyController.SetMoveSpeed(_moveSpeed);
+        return enemyController;
     }
+    public void SetMoveSpeed(float moveSpeed)
+    {
+        _moveSpeed = moveSpeed;
+    }
+
+    public void SetAddDelayTime(float addDelayTime)
+    {
+        _addDelayTime = addDelayTime;
+    } 
 }
 }

@@ -3,13 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityProject2.Abstracts.Utilities;
 using UnityEngine.SceneManagement;
+using UnityProject2.ScriptableObjects;
+using UnityProject2.Controllers;
 
 namespace UnityProject2.Managers{
 
 public class GameManager : SingletonMonoBehaviorObject<GameManager>
 {
+    [SerializeField] LevelDifficultyData[] _levelDifficultyDatas;
 
     public event System.Action OnGameStop;
+
+    public LevelDifficultyData LevelDifficultyData => _levelDifficultyDatas[DifficultyIndex];
+
+    int _difficultyIndex;
+
+    public int DifficultyIndex
+    { get => _difficultyIndex;
+      set
+      {
+        if(_difficultyIndex < 0 || _difficultyIndex > _levelDifficultyDatas.Length)
+        {
+            LoadSceneAsync("Menu");
+        }
+        else{
+            _difficultyIndex = value;
+        }
+      } 
+    }
+
     private void Awake() 
     {
         SingletonThisObject(this);    
@@ -24,6 +46,7 @@ public class GameManager : SingletonMonoBehaviorObject<GameManager>
 
     public void LoadScene(string sceneName)
     {
+    
         // Debug.Log("Load scene clicked");
         StartCoroutine(LoadSceneAsync(sceneName));
 
